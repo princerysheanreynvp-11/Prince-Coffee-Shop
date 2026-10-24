@@ -1,1221 +1,1164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Prince Coffee Shop</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-
-<style>
-:root {
-    --blue: #0751a5;
-    --deep-blue: #063875;
-    --sky: #eaf5ff;
-    --pale: #f5faff;
-    --gold: #B886454;
-    --gold: #d7a638;
-    --text: #344963;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 85px;
-}
-
-body {
-    font-family: 'Poppins', sans-serif;
-    background: var(--cream);
-    color: var(--text);
-    line-height: 1.7;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-img {
-    display: block;
-    width: 100%;
-    object-fit: cover;
-}
-
-button, input, textarea {
-    font: inherit;
-}
-
-.container {
-    width: min(1150px, 90%);
-    margin: auto;
-}
-
-section {
-    padding: 65px 0;
-}
-
-h1, h2, h3 {
-    font-family: 'Playfair Display', serif;
-    color: var(--deep-blue);
-    line-height: 1.25;
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 35px;
-}
-
-.section-title small {
-    color: var(--blue);
-    font-weight: 700;
-    letter-spacing: 2px;
-    font-size: 12px;
-}
-
-.section-title h2 {
-    font-size: clamp(28px, 4vw, 40px);
-}
-
-.section-title span {
-    display: block;
-    width: 65px;
-    height: 4px;
-    border-radius: 4px;
-    background: var(--gold);
-    margin: 13px auto;
-}
-
-.section-title p {
-    font-size: 13px;
-}
-
-.eyebrow {
-    color: var(--blue);
-    font-weight: 700;
-    letter-spacing: 2px;
-    font-size: 12px;
-}
-
-.btn {
-    display: inline-block;
-    border: 2px solid var(--blue);
-    background: var(--blue);
-    color: white;
-    padding: 10px 22px;
-    border-radius: 30px;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: .25s;
-}
-
-.btn:hover {
-    background: white;
-    color: var(--blue);
-}
-
-.btn-outline {
-    background: white;
-    color: var(--blue);
-}
-
-/* HEADER */
-
-header {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background:#C4A484;
-    border-bottom: 1px solid #e3effc;
-    box-shadow: 0 3px 15px #0751a510;
-}
-
-.navbar {
-    min-height: 76px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    position: relative;
-}
-
-.logo {
-    display: flex;
-    gap: 9px;
-    align-items: center;
-    color: var(--blue);
-    font: italic 700 27px 'Playfair Display', serif;
-    line-height: 1.1;
-    flex-shrink: 0;
-}
-
-.logo i {
-    font-size: 31px;
-    color: var(--gold);
-}
-
-.logo small {
-    display: block;
-    color: var(--deep-blue);
-    text-align: center;
-    font: 600 12px 'Poppins', sans-serif;
-}
-
-.nav-links {
-    display: flex;
-    gap: 22px;
-    list-style: none;
-}
-
-.nav-links a {
-    font-size: 13px;
-    font-weight: 600;
-}
-
-.nav-links a:hover {
-    color: var(--blue);
-}
-
-.nav-right {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    color: var(--blue);
-}
-
-.nav-right a {
-    font-size: 17px;
-}
-
-.menu-toggle {
-    display: none;
-    border: 0;
-    background: none;
-    color: var(--blue);
-    font-size: 24px;
-    cursor: pointer;
-}
-
-/* HERO SECTION - YOUR PHOTO */
-
-.hero {
-    min-height: 440px;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-    background:
-        linear-gradient(
-            90deg,
-            rgba(234,245,255,.99) 0%,
-            rgba(234,245,255,.96) 36%,
-            rgba(234,245,255,.30) 72%,
-            rgba(234,245,255,.05) 100%
-        ),
-        url('prince.jpg') right center / auto 100% no-repeat,
-        var(--sky);
-}
-
-.hero-content {
-    max-width: 590px;
-    padding: 65px 0;
-}
-
-.hero h1 {
-    font-size: clamp(42px, 5.5vw, 68px);
-    margin: 14px 0;
-}
-
-.hero h1 em {
-    color: var(--blue);
-}
-
-.hero p {
-    max-width: 450px;
-    margin-bottom: 23px;
-    font-size: 14px;
-}
-
-.hero-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-}
-
-/* ABOUT */
-
-.about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 45px;
-    align-items: center;
-}
-
-.about-photo {
-    height: 350px;
-    border-radius: 15px;
-    border: 4px solid white;
-    box-shadow: -9px 9px 0 #d9ebff, 0 8px 25px #0751a51c;
-}
-
-.about-text h2 {
-    font-size: 39px;
-    margin: 8px 0 15px;
-}
-
-.about-text p {
-    margin-bottom: 15px;
-    font-size: 13px;
-}
-
-.check-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px 18px;
-    margin: 20px 0;
-    font-size: 12px;
-    font-weight: 600;
-}
-
-.check-list i {
-    color: var(--blue);
-    margin-right: 5px;
-}
-
-/* MENU */
-
-.menu-section {
-    background: var(--pale);
-}
-
-.menu-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-}
-
-.menu-card {
-    background: white;
-    border: 1px solid #e0edfb;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px #0751a508;
-    transition: .3s;
-}
-
-.menu-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 25px #0751a51b;
-}
-
-.menu-card img {
-    height: 180px;
-    padding: 5px;
-    border-radius: 10px;
-}
-
-.menu-info {
-    padding: 12px 14px 15px;
-}
-
-.menu-info h3 {
-    font-size: 19px;
-}
-
-.menu-info p {
-    font-size: 12px;
-    color: #687a90;
-    margin: 6px 0;
-}
-
-.price {
-    color: var(--blue);
-    font-size: 19px;
-    font-weight: 700;
-}
-
-/* FEATURES */
-
-.features {
-    background: linear-gradient(120deg, #edf7ff, white, #e4f2ff);
-}
-
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
-}
-
-.feature {
-    text-align: center;
-    background: white;
-    border: 1px solid #e2efff;
-    border-radius: 14px;
-    padding: 28px 20px;
-    box-shadow: 0 5px 18px #0751a509;
-}
-
-.feature i {
-    font-size: 35px;
-    color: var(--blue);
-    margin-bottom: 12px;
-}
-
-.feature h3 {
-    font-size: 21px;
-    margin-bottom: 8px;
-}
-
-.feature p {
-    font-size: 12px;
-}
-
-/* REVIEWS */
-
-.reviews {
-    background: white;
-}
-
-.review-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.review-card {
-    text-align: center;
-    padding: 25px 20px;
-    border: 1px solid #dceafa;
-    border-radius: 12px;
-    background: #fcfdff;
-}
-
-.stars {
-    color: var(--gold);
-    font-size: 21px;
-    letter-spacing: 2px;
-}
-
-.review-card p {
-    font-size: 12px;
-    margin: 12px 0;
-    font-style: italic;
-}
-
-.review-card h3 {
-    font-size: 16px;
-}
-
-/* GALLERY */
-
-.gallery {
-    background: var(--pale);
-}
-
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 14px;
-}
-
-.gallery-grid img {
-    height: 200px;
-    border-radius: 11px;
-    border: 3px solid white;
-    box-shadow: 0 4px 15px #0751a510;
-    transition: .3s;
-}
-
-.gallery-grid img:hover {
-    transform: scale(1.025);
-}
-
-/* CONTACT */
-
-.contact-grid {
-    display: grid;
-    grid-template-columns: .9fr 1.1fr;
-    gap: 40px;
-}
-
-.contact-details h3 {
-    font-size: 27px;
-    margin-bottom: 12px;
-}
-
-.contact-details p {
-    margin: 12px 0;
-    font-size: 13px;
-    overflow-wrap: anywhere;
-}
-
-.contact-details i {
-    color: var(--blue);
-    width: 27px;
-}
-
-.contact-form {
-    display: grid;
-    gap: 12px;
-}
-
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 13px;
-    border: 1px solid #d7e6f7;
-    border-radius: 8px;
-    background: #fbfdff;
-    outline: none;
-    font-size: 13px;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-    border-color: var(--blue);
-    box-shadow: 0 0 0 3px #0751a510;
-}
-
-.contact-form textarea {
-    min-height: 125px;
-    resize: vertical;
-}
-
-.contact-form button {
-    justify-self: start;
-}
-
-#form-message {
-    color: var(--blue);
-    font-size: 12px;
-}
-
-/* FOOTER */
-
-footer {
-    background: linear-gradient(120deg, #063875, #0751a5);
-    color: white;
-    padding: 30px 0;
-    text-align: center;
-}
-
-.footer-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-}
-
-.footer-brand {
-    color: white;
-    font: italic 700 25px 'Playfair Display', serif;
-}
-
-.footer-brand i {
-    color: #f3cb72;
-    margin-right: 5px;
-}
-
-.footer-content > p {
-    font-size: 12px;
-}
-
-.social-links {
-    display: flex;
-    gap: 17px;
-    font-size: 21px;
-}
-
-.social-links a:hover {
-    color: #f3cb72;
-}
-
-.copyright {
-    margin-top: 20px;
-    font-size: 11px;
-    color: #e1edff;
-}
-
-/* TABLET */
-
-@media (max-width: 900px) {
-    .menu-toggle {
-        display: block;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Prince Coffee Shop in Bayawan City, Negros Oriental. Enjoy coffee, Malunggay Bread with Cheese, and Puto Maya with Chocolate.">
+  <title>Prince Coffee Shop | Taste the Difference</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+  <style>
+    :root {
+      --blue: #0751a5;
+      --deep-blue: #063875;
+      --sky: #eaf5ff;
+      --pale: #f5faff;
+      --gold: #d7a638;
+      --text: #344963;
+      --tan: #c4a484;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fff;
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .container {
+      width: min(1150px, 90%);
+      margin: auto;
+    }
+
+    section {
+      padding: 68px 0;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      color: var(--deep-blue);
+      line-height: 1.25;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .section-title small {
+      color: var(--blue);
+      font-weight: 700;
+      letter-spacing: 2px;
+      font-size: 12px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(28px, 4vw, 40px);
+    }
+
+    .section-title span {
+      display: block;
+      width: 65px;
+      height: 4px;
+      border-radius: 4px;
+      background: var(--gold);
+      margin: 13px auto;
+    }
+
+    .section-title p {
+      font-size: 13px;
+    }
+
+    .eyebrow {
+      color: var(--blue);
+      font-weight: 700;
+      letter-spacing: 2px;
+      font-size: 12px;
+    }
+
+    .btn {
+      display: inline-block;
+      border: 2px solid var(--blue);
+      background: var(--blue);
+      color: #fff;
+      padding: 10px 22px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: .25s;
+    }
+
+    .btn:hover {
+      background: #fff;
+      color: var(--blue);
+    }
+
+    .btn-outline {
+      background: #fff;
+      color: var(--blue);
+    }
+
+    /* HEADER */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--tan);
+      box-shadow: 0 3px 15px #0751a510;
+    }
+
+    .navbar {
+      min-height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      position: relative;
+    }
+
+    .logo {
+      display: flex;
+      gap: 9px;
+      align-items: center;
+      color: var(--blue);
+      font: italic 700 27px 'Playfair Display', serif;
+      line-height: 1.1;
+    }
+
+    .logo i {
+      font-size: 31px;
+      color: var(--gold);
+    }
+
+    .logo small {
+      display: block;
+      color: var(--deep-blue);
+      text-align: center;
+      font: 600 12px 'Poppins', sans-serif;
     }
 
     .nav-links {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: var(--blue);
+    }
+
+    .menu-toggle {
+      display: none;
+      border: 0;
+      background: none;
+      color: var(--blue);
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    /* HOME COVER: OWNER PHOTO ON THE LEFT */
+
+    .hero {
+      min-height: 500px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background-color: var(--sky);
+      background-image:
+        linear-gradient(
+          90deg,
+          rgba(234,245,255,1) 0%,
+          rgba(234,245,255,.98) 34%,
+          rgba(234,245,255,.76) 52%,
+          rgba(234,245,255,.08) 76%
+        ),
+        url("https://scontent.fceb6-4.fna.fbcdn.net/v/t39.30808-6/845340648_122320383746195645_5186526105012123241_n.jpg?stp=dst-jpg_tt6&cstp=mx1176x656&ctp=s1176x656&_nc_cat=106&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=833d8c&_nc_ohc=hnSSeGdFoaIQ7kNvwH8Vafv&_nc_oc=AdoW0hp9qFj_vDjxZZEnjHulZhGUDHjJCk8hXt2Ci49hSfAAVQtW05cT-uAtDGS1W8M&_nc_zt=23&_nc_ht=scontent.fceb6-4.fna&_nc_gid=0YOTS8SbLWuUI4W5lWi-ig&_nc_ss=7b2a8&oh=00_AQOe0ouqq037aukgB75C_m8B-jWbO1nK53h9QZOV0KZsQQ&oe=6AE2E890");
+      background-position: center, left center;
+      background-size: cover, auto 100%;
+      background-repeat: no-repeat;
+    }
+
+    .hero-content {
+      max-width: 590px;
+      padding: 65px 0;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 5.5vw, 68px);
+      margin: 14px 0;
+    }
+
+    .hero h1 em {
+      color: var(--blue);
+    }
+
+    .hero p {
+      max-width: 450px;
+      margin-bottom: 23px;
+      font-size: 14px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* ABOUT */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 45px;
+      align-items: center;
+    }
+
+    .about-photo {
+      height: 350px;
+      border-radius: 15px;
+      border: 4px solid white;
+      box-shadow: -9px 9px 0 #d9ebff;
+      object-position: center;
+    }
+
+    .about-text h2 {
+      font-size: 39px;
+      margin: 8px 0 15px;
+    }
+
+    .about-text p {
+      margin-bottom: 15px;
+      font-size: 13px;
+    }
+
+    .check-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 18px;
+      margin: 20px 0;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .check-list i {
+      color: var(--blue);
+      margin-right: 5px;
+    }
+
+    /* MENU */
+
+    .menu-section,
+    .gallery {
+      background: var(--pale);
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .menu-card {
+      background: #fff;
+      border: 1px solid #e0edfb;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px #0751a508;
+      transition: .3s;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .menu-card img {
+      height: 205px;
+      padding: 5px;
+      border-radius: 10px;
+    }
+
+    .menu-info {
+      padding: 12px 14px 18px;
+    }
+
+    .menu-info h3 {
+      font-size: 19px;
+    }
+
+    .menu-info p {
+      font-size: 12px;
+      color: #687a90;
+      margin: 6px 0;
+    }
+
+    .price {
+      color: var(--blue);
+      font-size: 19px;
+      font-weight: 700;
+    }
+
+    .menu-note {
+      text-align: center;
+      font-size: 12px;
+      margin-top: 22px;
+      color: #687a90;
+    }
+
+    /* FEATURES */
+
+    .features {
+      background: linear-gradient(
+        120deg,
+        #edf7ff,
+        #fff,
+        #e4f2ff
+      );
+    }
+
+    .features-grid,
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .feature,
+    .review-card {
+      text-align: center;
+      background: #fff;
+      border: 1px solid #e2efff;
+      border-radius: 14px;
+      padding: 28px 20px;
+    }
+
+    .feature i {
+      font-size: 35px;
+      color: var(--blue);
+      margin-bottom: 12px;
+    }
+
+    .feature h3 {
+      font-size: 21px;
+      margin-bottom: 8px;
+    }
+
+    .feature p,
+    .review-card p {
+      font-size: 12px;
+    }
+
+    /* CUSTOMER REVIEWS */
+
+    .stars {
+      color: var(--gold);
+      font-size: 21px;
+    }
+
+    .review-card p {
+      margin: 12px 0;
+      font-style: italic;
+    }
+
+    /* GALLERY */
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .gallery-grid img {
+      height: 200px;
+      border-radius: 11px;
+      border: 3px solid white;
+      transition: .3s;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.025);
+    }
+
+    /* CONTACT */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 40px;
+    }
+
+    .contact-details h3 {
+      font-size: 27px;
+    }
+
+    .contact-details p {
+      margin: 12px 0;
+      font-size: 13px;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-details i {
+      color: var(--blue);
+      width: 27px;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #d7e6f7;
+      border-radius: 8px;
+      background: #fbfdff;
+      font: inherit;
+    }
+
+    .contact-form textarea {
+      min-height: 125px;
+    }
+
+    .contact-form button {
+      justify-self: start;
+    }
+
+    #form-message {
+      color: var(--blue);
+      font-size: 12px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: linear-gradient(
+        120deg,
+        #063875,
+        #0751a5
+      );
+      color: #fff;
+      padding: 30px 0;
+      text-align: center;
+    }
+
+    .footer-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer-brand {
+      color: #fff;
+      font: italic 700 25px 'Playfair Display', serif;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 17px;
+      font-size: 21px;
+    }
+
+    .copyright {
+      margin-top: 20px;
+      font-size: 11px;
+    }
+
+    /* TABLET */
+
+    @media (max-width: 900px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
         display: none;
         position: absolute;
         top: 76px;
         left: 0;
         width: 100%;
-        padding: 12px 5% 20px;
-        background: white;
+        padding: 15px;
+        background: #fff;
         flex-direction: column;
-        gap: 0;
-        box-shadow: 0 8px 15px #00000010;
-    }
+        box-shadow: 0 10px 15px #0001;
+      }
 
-    .nav-links.active {
+      .nav-links.active {
         display: flex;
-    }
+      }
 
-    .nav-links a {
+      .nav-links a {
         display: block;
-        padding: 12px 0;
-    }
+        padding: 10px;
+      }
 
-    .nav-right .social-mini {
-        display: none;
-    }
-
-    .menu-grid {
+      .menu-grid,
+      .review-grid,
+      .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
+      }
+
+      .nav-right {
+        margin-left: auto;
+      }
     }
 
-    .review-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+    /* MOBILE */
 
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-/* MOBILE */
-
-@media (max-width: 600px) {
-    section {
+    @media (max-width: 600px) {
+      section {
         padding: 55px 0;
-    }
+      }
 
-    .hero {
-        min-height: 520px;
-        background:
-            linear-gradient(
-                90deg,
-                rgba(234,245,255,.96),
-                rgba(234,245,255,.78)
-            ),
-            url('prince.jpg') center / cover no-repeat;
-    }
+      .hero {
+        min-height: 560px;
+        background-image:
+          linear-gradient(
+            90deg,
+            rgba(234,245,255,.97),
+            rgba(234,245,255,.84)
+          ),
+          url("https://scontent.fceb6-4.fna.fbcdn.net/v/t39.30808-6/845340648_122320383746195645_5186526105012123241_n.jpg?stp=dst-jpg_tt6&cstp=mx1176x656&ctp=s1176x656&_nc_cat=106&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=833d8c&_nc_ohc=hnSSeGdFoaIQ7kNvwH8Vafv&_nc_oc=AdoW0hp9qFj_vDjxZZEnjHulZhGUDHjJCk8hXt2Ci49hSfAAVQtW05cT-uAtDGS1W8M&_nc_zt=23&_nc_ht=scontent.fceb6-4.fna&_nc_gid=0YOTS8SbLWuUI4W5lWi-ig&_nc_ss=7b2a8&oh=00_AQOe0ouqq037aukgB75C_m8B-jWbO1nK53h9QZOV0KZsQQ&oe=6AE2E890");
+        background-position: center, left center;
+        background-size: cover, auto 100%;
+      }
 
-    .hero-content {
-        padding: 55px 0;
-    }
-
-    .hero h1 {
+      .hero h1 {
         font-size: 43px;
-    }
+      }
 
-    .hero p {
-        font-size: 13px;
-    }
-
-    .about-grid,
-    .contact-grid {
+      .about-grid,
+      .contact-grid,
+      .menu-grid,
+      .features-grid,
+      .review-grid,
+      .gallery-grid {
         grid-template-columns: 1fr;
-    }
+      }
 
-    .about-grid {
-        gap: 30px;
-    }
-
-    .about-photo {
+      .about-photo {
         height: 280px;
-    }
+      }
 
-    .about-text h2 {
-        font-size: 33px;
-    }
+      .menu-card img {
+        height: 230px;
+      }
 
-    .menu-grid,
-    .features-grid,
-    .review-grid,
-    .gallery-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .menu-card img {
-        height: 220px;
-    }
-
-    .gallery-grid img {
+      .gallery-grid img {
         height: 250px;
-    }
+      }
 
-    .footer-content {
+      .footer-content {
         flex-direction: column;
-    }
+      }
 
-    .footer-brand {
-        font-size: 24px;
+      .logo {
+        font-size: 23px;
+      }
     }
-}
-</style>
+  </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
+  <!-- HEADER -->
+  <header>
+    <nav class="navbar container" aria-label="Main navigation">
 
-<header>
-<nav class="navbar container">
-
-    <a href="#home" class="logo">
-        <i class="fa-solid fa-mug-hot"></i>
+      <a href="#home" class="logo">
+        <i class="fa-solid fa-mug-hot" aria-hidden="true"></i>
         <span>
-            Prince
-            <small>Coffee Shop</small>
+          Prince
+          <small>Coffee Shop</small>
         </span>
-    </a>
+      </a>
 
-    <ul class="nav-links" id="nav-links">
+      <ul class="nav-links" id="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#menu">Menu</a></li>
         <li><a href="#reviews">Reviews</a></li>
         <li><a href="#gallery">Gallery</a></li>
         <li><a href="#contact">Contact</a></li>
-    </ul>
+      </ul>
 
-    <div class="nav-right">
-
-        <a class="social-mini"
-           href="https://www.facebook.com/"
-           aria-label="Facebook">
-            <i class="fa-brands fa-facebook"></i>
+      <div class="nav-right">
+        <a href="https://www.facebook.com/" aria-label="Facebook">
+          <i class="fa-brands fa-facebook"></i>
         </a>
 
-        <a class="social-mini"
-           href="https://www.instagram.com/"
-           aria-label="Instagram">
-            <i class="fa-brands fa-instagram"></i>
+        <a href="https://www.instagram.com/" aria-label="Instagram">
+          <i class="fa-brands fa-instagram"></i>
         </a>
 
         <button
-            class="menu-toggle"
-            id="menu-toggle"
-            aria-label="Toggle navigation"
-            aria-expanded="false"
-            aria-controls="nav-links">
-            <i class="fa-solid fa-bars"></i>
+          class="menu-toggle"
+          id="menu-toggle"
+          aria-label="Toggle navigation"
+          aria-expanded="false">
+          <i class="fa-solid fa-bars"></i>
         </button>
+      </div>
 
-    </div>
-</nav>
-</header>
+    </nav>
+  </header>
 
-<main>
+  <main>
 
-<!-- HERO -->
-
-<section class="hero" id="home">
-    <div class="container">
+    <!-- HOME COVER -->
+    <section class="hero" id="home">
+      <div class="container">
         <div class="hero-content">
 
-            <span class="eyebrow">
-                WELCOME TO PRINCE COFFEE SHOP
-            </span>
+          <span class="eyebrow">
+            WELCOME TO PRINCE COFFEE SHOP
+          </span>
 
-            <h1>
-                Taste The<br>
-                <em>Difference</em>
-            </h1>
+          <h1>
+            Taste The<br>
+            <em>Difference</em>
+          </h1>
 
-            <p>
-                One cup, taste the difference.
-             
-            </p>
+          <p>
+            One cup, taste the difference.           
+</p>
 
-            <div class="hero-buttons">
-                <a href="#menu" class="btn">
-                    <i class="fa-solid fa-mug-hot"></i>
-                    Explore Our Menu
-                </a>
+          <div class="hero-buttons">
+            <a href="#menu" class="btn">
+              <i class="fa-solid fa-mug-hot"></i>
+              Explore Our Menu
+            </a>
 
-                <a href="#contact" class="btn btn-outline">
-                    Contact Us
-                </a>
-            </div>
+            <a href="#contact" class="btn btn-outline">
+              Contact Us
+            </a>
+          </div>
 
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
-<!-- ABOUT -->
-
-<section id="about">
-    <div class="container about-grid">
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container about-grid">
 
         <img
-            class="about-photo"
-            src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=900&q=85"
-            alt="Cozy coffee shop interior"
-            loading="lazy">
+          class="about-photo"
+          src="https://scontent.fceb6-6.fna.fbcdn.net/v/t39.30808-6/852999826_122320385348195645_36100913045636844_n.jpg?stp=dst-jpg_tt6&cstp=mx1451x1084&ctp=s1451x1084&_nc_cat=108&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=833d8c&_nc_ohc=K_tLWLUK08kQ7kNvwGdKLzE&_nc_oc=Adq3cA5zXBaB6i51A9-nx9dfNivP5KRzOppInY_wIFLsGqRGviBZD8jQd0Wm0IYO184&_nc_zt=23&_nc_ht=scontent.fceb6-6.fna&_nc_gid=DPW-vGFfwv6k2YHcsNI_rg&_nc_ss=7b2a8&oh=00_AQN9H3z5KKjZGtOv2tx6dMRmev_y4NLyLZ-BOOHufa3mQg&oe=6AE2E2DE"
+          alt="Owner of Prince Coffee Shop holding a cup of latte">
 
         <div class="about-text">
 
-            <span class="eyebrow">ABOUT US</span>
-            <h2>Our Story</h2>
+          <span class="eyebrow">ABOUT US</span>
+          <h2>Our Story</h2>
 
-            <p>
-                Welcome to Prince Coffee Shop, a cozy place created
-                for coffee lovers and people who appreciate life's
-                simple pleasures.
-            </p>
+          <p>
+            Welcome to Prince Coffee Shop, a cozy place
+            created for coffee lovers and people who
+            appreciate life's simple pleasures.
+          </p>
 
-            <p>
-                We believe every cup of coffee brings people together.
-                Our goal is to offer delicious drinks, friendly service,
-                and a relaxing atmosphere where everyone feels welcome.
-            </p>
+          <p>
+            We believe every cup of coffee brings people
+            together. Our goal is to offer delicious drinks,
+            friendly service, and a relaxing atmosphere
+            where everyone feels welcome.
+          </p>
 
-            <div class="check-list">
-                <span>
-                    <i class="fa-solid fa-circle-check"></i>
-                    Fresh Coffee
-                </span>
+          <p>
+            Alongside our coffee, enjoy two local favorites:
+            Malunggay Bread with Cheese and Puto Maya
+            served with chocolate.
+          </p>
 
-                <span>
-                    <i class="fa-solid fa-heart"></i>
-                    Quality Ingredients
-                </span>
+          <div class="check-list">
+            <span>
+              <i class="fa-solid fa-circle-check"></i>
+              Fresh Coffee
+            </span>
 
-                <span>
-                    <i class="fa-solid fa-users"></i>
-                    Friendly Service
-                </span>
-            </div>
+            <span>
+              <i class="fa-solid fa-heart"></i>
+              Quality Ingredients
+            </span>
 
-            <a href="#menu" class="btn">
-                Learn More
-                <i class="fa-solid fa-arrow-right"></i>
-            </a>
+            <span>
+              <i class="fa-solid fa-users"></i>
+              Friendly Service
+            </span>
+          </div>
+
+          <a href="#menu" class="btn">View Our Menu</a>
 
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
-<!-- MENU -->
-
-<section class="menu-section" id="menu">
-    <div class="container">
+    <!-- MENU -->
+    <section class="menu-section" id="menu">
+      <div class="container">
 
         <div class="section-title">
-            <small>OUR SPECIAL MENU</small>
-            <h2>Delicious Coffee &amp; More</h2>
-            <span></span>
-            <p>Discover your new favorite drink and treat.</p>
+          <small>OUR SPECIAL MENU</small>
+          <h2>Coffee &amp; Local Favorites</h2>
+          <span></span>
+          <p>
+            Simple choices, comforting flavors,
+            made for your coffee break.
+          </p>
         </div>
 
         <div class="menu-grid">
 
-            <article class="menu-card">
-                <img
-                    src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=700&q=80"
-                    alt="Classic black coffee"
-                    loading="lazy">
+          <article class="menu-card">
+            <img
+              src="https://scontent.fceb6-5.fna.fbcdn.net/v/t39.30808-6/863451119_122320391000195645_507942163440238597_n.jpg?stp=cp6_dst-jpg_tt6&cstp=mx1077x982&ctp=s1077x982&_nc_cat=104&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=833d8c&_nc_ohc=w8xJgm6mGH0Q7kNvwGWnuKa&_nc_oc=Adq8DHSnUQU1MW6FrVrTJTdlCQuyXxCx7x8CQ5UrHgGtu26u9S5tlUid-TX2ejHl6Qg&_nc_zt=23&_nc_ht=scontent.fceb6-5.fna&_nc_gid=d_JOZRxUPDJwUgZ4ZiR72A&_nc_ss=7b2a8&oh=00_AQOlBFeFgvbultDkoH5yoViS_7vVl76Jd-YmI5DIgj7cHg&oe=6AE30FE8"
+              alt="A freshly prepared cup of coffee">
 
-                <div class="menu-info">
-                    <h3>Classic Black Coffee</h3>
-                    <p>Rich aroma and a smooth, satisfying coffee flavor.</p>
-                    <span class="price">₱80</span>
-                </div>
-            </article>
+            <div class="menu-info">
+              <h3>Native Coffee</h3>
+              <p>
+                Rich aroma and a smooth, satisfying coffee flavor.
+              </p>
+              <span class="price">₱50</span>
+            </div>
+          </article>
 
-            <article class="menu-card">
-                <img
-                    src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=700&q=80"
-                    alt="Iced coffee"
-                    loading="lazy">
+ <article class="menu-card">
+            <img
+              src="https://scontent.fceb6-5.fna.fbcdn.net/v/t39.30808-6/863451141_122320391042195645_7780920584957693125_n.jpg?stp=cp6_dst-jpg_tt6&cstp=mx1038x971&ctp=s1038x971&_nc_cat=107&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=833d8c&_nc_ohc=WCaueSRIxvsQ7kNvwHKC3ZY&_nc_oc=AdrjQF-IgI07FkwegookZL0KfMyAImGXTavdLXJb3nxwgndD8xJ0QakzJBA3xeGuNwU&_nc_zt=23&_nc_ht=scontent.fceb6-5.fna&_nc_gid=5jyqxuYYTtgQYyGtREjtAA&_nc_ss=7b2a8&oh=00_AQN2rV7WNm5AwXL4k3DrTlXEPOWTAoUUSc_roiy48OoYgw&oe=6AE31784"
+              alt="A freshly prepared cup of coffee">
 
-                <div class="menu-info">
-                    <h3>Iced Coffee</h3>
-                    <p>A refreshing chilled coffee for warm and sunny days.</p>
-                    <span class="price">₱110</span>
-                </div>
-            </article>
+            <div class="menu-info">
+              <h3> Classic Coffee</h3>
+              <p>
+                Rich aroma and a smooth, satisfying coffee flavor.
+              </p>
+              <span class="price">₱55</span>
+            </div>
+          </article>
 
-            <article class="menu-card">
-                <img
-                    src="https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?auto=format&fit=crop&w=700&q=80"
-                    alt="Creamy latte"
-                    loading="lazy">
+          <article class="menu-card">
+            <img
+              src="https://scontent.fceb6-6.fna.fbcdn.net/v/t39.30808-6/861834127_122320391084195645_4585008646175075449_n.jpg?stp=cp6_dst-jpg_tt6&cstp=mx1080x1011&ctp=s1080x1011&_nc_cat=101&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=833d8c&_nc_ohc=ZjX6iRppzSMQ7kNvwFNt8dy&_nc_oc=AdpihBzTL3zrtEqrmJjLS6wP8V4vCHqqtYqvIvSLJr0d42PTnchozAPZAFp-bunW1F4&_nc_zt=23&_nc_ht=scontent.fceb6-6.fna&_nc_gid=35mm0GfKoDe56TQTQVeo_g&_nc_ss=7b2a8&oh=00_AQMSyU46XHPXxG-L8bExUkgCrSOM03mncPyNg00zwERrYQ&oe=6AE30E55"
+              alt="Iced coffee served in a glass">
 
-                <div class="menu-info">
-                    <h3>Creamy Latte</h3>
-                    <p>Espresso blended with silky steamed milk.</p>
-                    <span class="price">₱120</span>
-                </div>
-            </article>
+            <div class="menu-info">
+              <h3>Iced Coffee</h3>
+              <p>
+                A refreshing chilled coffee for warm and sunny days.
+              </p>
+              <span class="price">₱45</span>
+            </div>
+          </article>
 
-            <article class="menu-card">
-                <img
-                    src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=700&q=80"
-                    alt="Cappuccino"
-                    loading="lazy">
+          <article class="menu-card">
+            <img
+              src="https://scontent.fceb6-3.fna.fbcdn.net/v/t39.30808-6/863958771_122320391126195645_2419728837467471374_n.jpg?stp=cp6_dst-jpg_tt6&cstp=mx1080x1159&ctp=s1080x1159&_nc_cat=100&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=833d8c&_nc_ohc=AKNJ1X0bbhQQ7kNvwEHZ97l&_nc_oc=AdrqdY5mIHfZiJ2eTGF93LdzbqG1zycqgUJsRs2fclKNbnhAdIWRYFndUfvw3zjzTAM&_nc_zt=23&_nc_ht=scontent.fceb6-3.fna&_nc_gid=cw9C4oFSqk5hIemCrL3e8g&_nc_ss=7b2a8&oh=00_AQN9CmK5eHckXOieDwSCHgpE1xa5oIcyt5O2dplJ73rG9Q&oe=6AE30266"
+              alt="Creamy latte">
 
-                <div class="menu-info">
-                    <h3>Cappuccino</h3>
-                    <p>Espresso, steamed milk, and a soft layer of foam.</p>
-                    <span class="price">₱120</span>
-                </div>
-            </article>
+            <div class="menu-info">
+              <h3>Creamy Latte</h3>
+              <p>
+                Espresso blended with silky steamed milk.
+              </p>
+              <span class="price">₱60</span>
+            </div>
+          </article>
 
-            <article class="menu-card">
-                <img
-                    src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80"
-                    alt="Chocolate cake"
-                    loading="lazy">
+          <article class="menu-card">
+            <img
+              src="https://scontent.fceb6-2.fna.fbcdn.net/v/t39.30808-6/861449717_122320391168195645_5439563718358995274_n.jpg?stp=cp6_dst-jpg_tt6&cstp=mx1070x1148&ctp=s1070x1148&_nc_cat=104&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=833d8c&_nc_ohc=Ar0c0rjIf0sQ7kNvwGOi9Be&_nc_oc=AdqAe0Xmsmy3pneYT5mO2OlgZ_hVRhG-WXYpnNWIKso2sUlm7C_gD3JgOOXGf8V7MBo&_nc_zt=23&_nc_ht=scontent.fceb6-2.fna&_nc_gid=-3slpmO0YtMiKLkDr3QAuw&_nc_ss=7b2a8&oh=00_AQOOkhenS-O11GR0Lv9G_svPSNWKzQMkW0JEN9Syb-lmkQ&oe=6AE300FC"
+              alt="Fresh bread loaves">
 
-                <div class="menu-info">
-                    <h3>Chocolate Cake</h3>
-                    <p>A rich chocolate dessert perfect with your coffee.</p>
-                    <span class="price">₱100</span>
-                </div>
-            </article>
+            <div class="menu-info">
+              <h3>Malunggay Bread with Cheese</h3>
+              <p>
+                A savory local bread favorite with
+                malunggay and cheese.
+              </p>
+              <span class="price">25.00</span>
+            </div>
+          </article>
 
-            <article class="menu-card">
-                <img
-                    src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=700&q=80"
-                    alt="Fresh pastries"
-                    loading="lazy">
+          <article class="menu-card">
+            <img
+              src="https://scontent.fceb6-4.fna.fbcdn.net/v/t39.30808-6/864636113_122320391258195645_192189214359413347_n.jpg?stp=cp6_dst-jpg_tt6&cstp=mx1080x519&ctp=s1080x519&_nc_cat=108&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=833d8c&_nc_ohc=5D2dosFxU3AQ7kNvwGiHhGH&_nc_oc=AdpzwgMRxjE4egXQzVeVYGh4M7WUA_JpsV7m-oY2MNESIF6UM_ZHjmG9pYqCfVJPzuU&_nc_zt=23&_nc_ht=scontent.fceb6-4.fna&_nc_gid=_gKPsRPBaxUZ4QP2TzPeGQ&_nc_ss=7b2a8&oh=00_AQMxdTa_ZAA3HqVZqbbOlgMeFetbCRPO9DIStXyfOsCcIQ&oe=6AE320F3"
+              alt="Sticky rice dessert served in a bowl">
 
-                <div class="menu-info">
-                    <h3>Fresh Pastries</h3>
-                    <p>Delicious baked treats for a wonderful break.</p>
-                    <span class="price">₱75</span>
-                </div>
-            </article>
+            <div class="menu-info">
+              <h3>Puto Maya with Chocolate</h3>
+              <p>
+                Filipino sticky rice served with chocolate
+                for a sweet, comforting treat.
+              </p>
+              <span class="price">50</span>
+            </div>
+          </article>
+
+ <article class="menu-card">
+            <img
+              src="https://scontent.fceb6-4.fna.fbcdn.net/v/t39.30808-6/860855713_122320391300195645_2268997421067822837_n.jpg?stp=dst-jpg_tt6&cstp=mx1668x943&ctp=s1668x943&_nc_cat=106&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=833d8c&_nc_ohc=FmxU7Pb9W18Q7kNvwGrud5h&_nc_oc=Adq9b-wYQhzvDq5u-A3k41Wh4bgpls-CIj5muqgOrKzIDfYp4FaW7GcqDUbQwiNwTC0&_nc_zt=23&_nc_ht=scontent.fceb6-4.fna&_nc_gid=5CLxm95ArLakNJehYgpt3A&_nc_ss=7b2a8&oh=00_AQPKj4EXN1mkqVEUDsmFT9EMUqb4B-DDP8EvCCVmLQW7gQ&oe=6AE32602"
+              alt="Sticky rice dessert served in a bowl">
+
+            <div class="menu-info">
+              <h3>Puto Cheese</h3>
+              <p>
+                Rice Puto served with cheesy cheese
+                for a sweet, comforting treat.
+              </p>
+              <span class="price">15</span>
+            </div>
+          </article>
 
         </div>
-    </div>
-</section>
 
-<!-- FEATURES -->
+        <p class="menu-note">
+          Menu prices for the two local snacks can be added
+          when confirmed. We do not offer cakes or other pastries.
+        </p>
 
-<section class="features">
-    <div class="container">
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features">
+      <div class="container">
 
         <div class="section-title">
-            <small>WHY CHOOSE US?</small>
-            <h2>Your Perfect Coffee Experience</h2>
-            <span></span>
+          <small>WHY CHOOSE US?</small>
+          <h2>Your Perfect Coffee Experience</h2>
+          <span></span>
         </div>
 
         <div class="features-grid">
 
-            <article class="feature">
-                <i class="fa-solid fa-leaf"></i>
-                <h3>Quality Ingredients</h3>
-                <p>
-                    We value great flavor and carefully selected ingredients.
-                </p>
-            </article>
+          <article class="feature">
+            <i class="fa-solid fa-leaf"></i>
+            <h3>Quality Ingredients</h3>
+            <p>
+              We value great flavor and carefully selected ingredients.
+            </p>
+          </article>
 
-            <article class="feature">
-                <i class="fa-solid fa-mug-hot"></i>
-                <h3>Made With Care</h3>
-                <p>
-                    Every cup is prepared with care to make your day better.
-                </p>
-            </article>
+          <article class="feature">
+            <i class="fa-solid fa-mug-hot"></i>
+            <h3>Made With Care</h3>
+            <p>
+              Every cup is prepared with care to make your day better.
+            </p>
+          </article>
 
-            <article class="feature">
-                <i class="fa-regular fa-heart"></i>
-                <h3>Warm Hospitality</h3>
-                <p>
-                    Enjoy a welcoming atmosphere and friendly service.
-                </p>
-            </article>
+          <article class="feature">
+            <i class="fa-regular fa-heart"></i>
+            <h3>Warm Hospitality</h3>
+            <p>
+              Enjoy a welcoming atmosphere and friendly service.
+            </p>
+          </article>
 
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
-<!-- REVIEWS -->
-
-<section class="reviews" id="reviews">
-    <div class="container">
+    <!-- CUSTOMER REVIEWS -->
+    <section class="reviews" id="reviews">
+      <div class="container">
 
         <div class="section-title">
-            <small>CUSTOMER REVIEWS</small>
-            <h2>What Our Customers Say</h2>
-            <span></span>
+          <small>CUSTOMER REVIEWS</small>
+          <h2>What Our Customers Say</h2>
+          <span></span>
         </div>
 
         <div class="review-grid">
 
-            <article class="review-card">
-                <div class="stars">★★★★★</div>
-                <p>
-                    "The coffee? im impressed it tastes as good as my divorce, bittersweet"
-                </p>
-                <h3>Pep Guardiola</h3>
-            </article>
+          <article class="review-card">
+            <div class="stars" aria-label="5 out of 5 stars">
+              ★★★★★
+            </div>
+            <p>
+              "The coffee? I'm impressed. It tastes as good
+              as my divorce, bittersweet."
+            </p>
+            <h3>Pep Guardiola</h3>
+          </article>
 
-            <article class="review-card">
-                <div class="stars">★★</div>
-                <p>
-                    "Honestly their latte is kind of bitter I expected more 2 stars.."
-                </p>
-                <h3>Skyrie Ojenos</h3>
-            </article>
+          <article class="review-card">
+            <div class="stars" aria-label="2 out of 5 stars">
+              ★★
+            </div>
+            <p>
+              "Honestly their latte is kind of bitter.
+              I expected more. Two stars."
+            </p>
+            <h3>Skyrie Ojenos</h3>
+          </article>
 
-            <article class="review-card">
-                <div class="stars">★★★★</div>
-                <p>
-                    "Good coffee".
-                    this brings me back home"
-                </p>
-                <h3>Erling Haaland</h3>
-            </article>
+          <article class="review-card">
+            <div class="stars" aria-label="4 out of 5 stars">
+              ★★★★
+            </div>
+            <p>
+              "Good coffee. This brings me back home."
+            </p>
+            <h3>Erling Haaland</h3>
+          </article>
 
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
-<!-- GALLERY -->
-
-<section class="gallery" id="gallery">
-    <div class="container">
+    <!-- GALLERY -->
+    <section class="gallery" id="gallery">
+      <div class="container">
 
         <div class="section-title">
-            <small>OUR COFFEE GALLERY</small>
-            <h2>A Little Glimpse of Our Coffee World</h2>
-            <span></span>
+          <small>OUR COFFEE GALLERY</small>
+          <h2>A Little Glimpse of Our Coffee World</h2>
+          <span></span>
+          <p>
+            Coffee moments and local favorites at Prince Coffee Shop.
+          </p>
         </div>
 
         <div class="gallery-grid">
 
-            <img
-                src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=700&q=80"
-                alt="Coffee beans"
-                loading="lazy">
+          <img
+            src="https://img.freepik.com/free-photo/delicious-coffee-beans-cup_23-2150691429.jpg"
+            alt="Coffee being prepared">
 
-            <img
-                src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=700&q=80"
-                alt="Barista making coffee"
-                loading="lazy">
+          <img
+            src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=800&q=85"
+            alt="Barista preparing coffee">
 
-            <img
-                src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=700&q=80"
-                alt="Coffee shop interior"
-                loading="lazy">
+          <img
+            src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=85"
+            alt="Cozy cafe interior">
 
-            <img
-                src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=700&q=80"
-                alt="Coffee cup"
-                loading="lazy">
+          <img
+            src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=800&q=85"
+            alt="Coffee cup on a table">
 
-            <img
-                src="https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=700&q=80"
-                alt="Fresh coffee"
-                loading="lazy">
+          <img
+            src="https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=800&q=85"
+            alt="Freshly brewed coffee">
 
-            <img
-                src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=700&q=80"
-                alt="Coffee brewing"
-                loading="lazy">
+          <img
+            src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=800&q=85"
+            alt="Coffee brewing">
 
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
-<!-- CONTACT -->
-
-<section id="contact">
-    <div class="container">
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
 
         <div class="section-title">
-            <small>GET IN TOUCH</small>
-            <h2>Contact Prince Coffee Shop</h2>
-            <span></span>
-            <p>We would love to hear from you!</p>
+          <small>GET IN TOUCH</small>
+          <h2>Contact Prince Coffee Shop</h2>
+          <span></span>
+          <p>We would love to hear from you!</p>
         </div>
 
         <div class="contact-grid">
 
-            <div class="contact-details">
-
-                <h3>Let's Talk Coffee!</h3>
-
-                <p>
-                    Have a question or suggestion?
-                    Get in touch with us.
-                </p>
-
-                <p>
-                    <i class="fa-solid fa-location-dot"></i>
-                    Bayawan City, Negros Oriental, Philippines
-                </p>
-
-                <p>
-                    <i class="fa-solid fa-phone"></i>
-                    <a href="tel:09608583766">09608583766</a>
-                </p>
-
-                <p>
-                    <i class="fa-solid fa-envelope"></i>
-                    <a href="mailto:princecoffeeshop@example.com">
-                        princecoffeeshop@example.com
-                    </a>
-                </p>
-
-                <p>
-                    <i class="fa-regular fa-clock"></i>
-                    Monday - Saturday: 8:00 AM - 8:00 PM
-                </p>
-
-            </div>
-
-            <form class="contact-form" id="contact-form">
-
-                <input
-                    type="text"
-                    name="name"
-                    placeholder="Your Name"
-                    aria-label="Your Name"
-                    required>
-
-                <input
-                    type="email"
-                    name="email"
-                    placeholder="Your Email"
-                    aria-label="Your Email"
-                    required>
-
-                <input
-                    type="text"
-                    name="subject"
-                    placeholder="Subject"
-                    aria-label="Subject"
-                    required>
-
-                <textarea
-                    name="message"
-                    placeholder="Write your message here..."
-                    aria-label="Your Message"
-                    required></textarea>
-
-                <button class="btn" type="submit">
-                    Send Message
-                    <i class="fa-solid fa-paper-plane"></i>
-                </button>
-
-                <p id="form-message" role="status" aria-live="polite"></p>
-
-            </form>
-
-        </div>
-    </div>
-</section>
-
-</main>
-
-<!-- FOOTER -->
-
-<footer>
-    <div class="container">
-
-        <div class="footer-content">
-
-            <div class="footer-brand">
-                <i class="fa-solid fa-mug-hot"></i>
-                Prince Coffee Shop
-            </div>
+          <div class="contact-details">
+            <h3>Let's Talk Coffee!</h3>
 
             <p>
-                Good coffee. Good company. Beautiful moments.
+              Have a question or suggestion?
+              Get in touch with us.
             </p>
 
-            <div class="social-links">
+            <p>
+              <i class="fa-solid fa-location-dot"></i>
+              Bayawan City, Negros Oriental, Philippines
+            </p>
 
-                <a href="https://www.facebook.com/"
-                   aria-label="Facebook">
-                    <i class="fa-brands fa-facebook"></i>
-                </a>
+            <p>
+              <i class="fa-solid fa-phone"></i>
+              <a href="tel:09608583766">09608583766</a>
+            </p>
 
-                <a href="https://www.instagram.com/"
-                   aria-label="Instagram">
-                    <i class="fa-brands fa-instagram"></i>
-                </a>
+            <p>
+              <i class="fa-solid fa-envelope"></i>
+              <a href="mailto:princecoffeeshop@example.com">
+                princecoffeeshop@example.com
+              </a>
+            </p>
 
-                <a href="https://www.tiktok.com/"
-                   aria-label="TikTok">
-                    <i class="fa-brands fa-tiktok"></i>
-                </a>
+            <p>
+              <i class="fa-regular fa-clock"></i>
+              Monday - Saturday: 8:00 AM - 8:00 PM
+            </p>
+          </div>
 
-            </div>
+          <form class="contact-form" id="contact-form">
 
+            <input
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              aria-label="Your Name"
+              required>
+
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              aria-label="Your Email"
+              required>
+
+            <input
+              type="text"
+              name="subject"
+              placeholder="Subject"
+              aria-label="Subject"
+              required>
+
+            <textarea
+              name="message"
+              placeholder="Write your message here..."
+              aria-label="Message"
+              required></textarea>
+
+            <button class="btn" type="submit">
+              Send Message
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+
+            <p id="form-message" role="status"></p>
+
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+
+      <div class="footer-content">
+
+        <div class="footer-brand">
+          <i class="fa-solid fa-mug-hot"></i>
+          Prince Coffee Shop
         </div>
 
-        <p class="copyright">
-            &copy; <span id="year"></span>
-            Prince Coffee Shop. All rights reserved.
-        </p>
+        <p>Good coffee. Good company. Beautiful moments.</p>
+
+        <div class="social-links">
+          <a href="https://www.facebook.com/" aria-label="Facebook">
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+
+          <a href="https://www.instagram.com/" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+
+          <a href="https://www.tiktok.com/" aria-label="TikTok">
+            <i class="fa-brands fa-tiktok"></i>
+          </a>
+        </div>
+
+      </div>
+
+      <p class="copyright">
+        © <span id="year"></span>
+        Prince Coffee Shop. All rights reserved.
+      </p>
 
     </div>
-</footer>
+  </footer>
 
-<!-- JAVASCRIPT -->
+  <!-- JAVASCRIPT -->
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('nav-links');
+    const icon = toggle.querySelector('i');
 
-<script>
-const toggle = document.getElementById("menu-toggle");
-const nav = document.getElementById("nav-links");
-const icon = toggle.querySelector("i");
+    toggle.addEventListener('click', () => {
+      const opened = nav.classList.toggle('active');
 
-// Open and close the mobile navigation
-toggle.addEventListener("click", function () {
-    const opened = nav.classList.toggle("active");
+      toggle.setAttribute(
+        'aria-expanded',
+        String(opened)
+      );
 
-    toggle.setAttribute("aria-expanded", opened);
-
-    icon.className = opened
-        ? "fa-solid fa-xmark"
-        : "fa-solid fa-bars";
-});
-
-// Close the mobile menu after clicking a link
-document.querySelectorAll(".nav-links a").forEach(function(link) {
-    link.addEventListener("click", function() {
-        nav.classList.remove("active");
-
-        toggle.setAttribute("aria-expanded", "false");
-
-        icon.className = "fa-solid fa-bars";
+      icon.className = opened
+        ? 'fa-solid fa-xmark'
+        : 'fa-solid fa-bars';
     });
-});
 
-// Update the copyright year automatically
-document.getElementById("year").textContent =
-    new Date().getFullYear();
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('active');
+        toggle.setAttribute('aria-expanded', 'false');
+        icon.className = 'fa-solid fa-bars';
+      });
+    });
 
-// Contact form demonstration
-document.getElementById("contact-form").addEventListener(
-    "submit",
-    function(event) {
+    document.getElementById('year').textContent =
+      new Date().getFullYear();
+
+    document.getElementById('contact-form').addEventListener(
+      'submit',
+      function(event) {
         event.preventDefault();
 
-        document.getElementById("form-message").textContent =
-            "Thank you! This is a demo form. Your message has not been sent.";
+        document.getElementById('form-message').textContent =
+          'Thank you! This is a demo form. Your message has not been sent.';
 
         this.reset();
-    }
-);
-</script>
+      }
+    );
+  </script>
 
 </body>
 </html>
